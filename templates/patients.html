@@ -1,0 +1,31 @@
+{% extends "base.html" %} 
+
+{% block content %}
+
+    <section>
+        <h2 class="text-xl mb-2"> Patients Table </h2>
+        <table class="table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">Patient ID</th>
+                    <th class="px-4 py-2">Patient First Name</th>
+                    <th class="px-4 py-2">Patient Last Name</th>
+                    <th class="px-4 py-2">Date of Birth</th>
+                    <th class="px-4 py-2">Provider ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for data in data2.values %}
+                <tr>
+                    <td class="border px-4 py-2">{{ data[0] }}</td>
+                    <td class="border px-4 py-2">{{ data[1] }}</td>
+                    <td class="border px-4 py-2">{{ data[2] }}</td>
+                    <td class="border px-4 py-2">{{ data[3] }}</td>
+                    <td class="border px-4 py-2">{{ data[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>        
+    </section>
+
+{% endblock %}

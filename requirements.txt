@@ -1,0 +1,6 @@
+faker
+pandas
+flask
+os
+sqlalchemy
+dotenv
