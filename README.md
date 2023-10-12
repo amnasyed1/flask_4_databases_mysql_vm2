@@ -7,18 +7,20 @@ Manually setting up and running a database on a cloud VM. Hands-on experience se
 3. Once on the `Virtual Machine` page, click `+ Create`, which is located towards the top of the page, and then click the first option on the drop down, `Azure virtual machine`.
 4. The page will automatically navigate to the proper page, and land you under the `Basics` tab. Under the Basics tab, ensure your subscription is `Azure for Students`, and create and name a new resouce group. I named my resource group `504-wk4b`.
 5. Under `Instance details`, give your VM a name. I named mine `AmnaMySQL`. Next, change the `Security type` it `Standard`.
-6. Next to `Size`, select `See all sizes ` and then under `VM sizes`, scroll to find `B-series`, click the drop down, and then click on `B1ms`, ensure the row gets highlighted and then click select. The selection should look like the screenshot below: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm/assets/123895397/dde4468c-a04c-46cf-b67b-c50ec843f23a)
+6. Next to `Size`, select `See all sizes ` and then under `VM sizes`, scroll to find `B-series`, click the drop down, and then click on `B1ms`, ensure the row gets highlighted and then click select. The selection should look like the screenshot below: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/d3c64bc5-88bf-4961-8ac5-228d7ad529fd)
 7. Under `Administrator account` for the `Authentication type` select `Password`. Now configure a `Username` and `Password`.
 8. For the port, under `Inbound port rules`, go to `select inbound ports`, click the drop-down, and select `HTTP (80)` and `HTTPS (443)`.
 9. Next, navigate to the `Networking` tab, located in same row as the Basics tab.
 10. Click the box next to `Delete public IP and NIC whne VM is deleted` so the box is check marked.
-11. Click `Review + Create`, review all the information presented to ensure it is correct, the price should look like the screenshot below: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm/assets/123895397/03c31aae-89c3-4fb7-ac4d-d43e5567c04b)
+11. Click `Review + Create`, review all the information presented to ensure it is correct, the price should look like the screenshot below: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/d3054fc1-1853-4fc6-a2e2-533d141fe001)
+
 
 12. If all looks well, click `Create`.
 ## Virtual Machine Setup on GCP
 1. Log into your Google Cloud account, ensure you are in `console.cloud.google.com`, and navigate to the hamburger icon on the left-hand side, and click on `Compute Engine` from the menu.
 2. Click `Create Instance`, and name your instance. I named mine `amna-504-sql`.
-3. Under `Machine Type` select this: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm/assets/123895397/5d755272-ad94-49a3-b463-bc314572aee7)
+3. Under `Machine Type` select this: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/0ee3d302-f590-4700-88ad-48c6829e312a)
+
 4. Under `Firewall`, select  `Allow HTTP traffic` and `Allow HTTPS traffic`.
 5. Keep everything else under the default settings and click `Create`.
 
@@ -42,6 +44,6 @@ Manually setting up and running a database on a cloud VM. Hands-on experience se
 6. Go back to MySQL Workbench, and the connection should work after these steps are completed.
 
 ## Rational Behind My Database Schema
-![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm/assets/123895397/ff1198ca-a459-4366-8d4d-b4a1f955d966)
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/86e5d353-c26e-4c98-b3d3-0c534bcbab7b)
 
 I created 2 tables, a `providers` table and a `patients` table. In my `providers` table the primary key (PK) is `provider_id`. In the `patients` table, the PK is `patient_id`. I made the PKs the patient and provider ids, due to each individual having their own unique ID numbers, which would allow for easy identification. There is a foreign key (FK) relationship between the two tables; under the `patients` table, the foreign key was the `provider_id`. I chose this rational due to the norm in a healthcare setting where each patient is under the care of a provider, whether it be a physician, nurse practitioner, physician assistant, occupational therapist, physical therapist, respiratory therapist etc. 
