@@ -7,19 +7,22 @@ Manually setting up and running a database on a cloud VM. Hands-on experience se
 3. Once on the `Virtual Machine` page, click `+ Create`, which is located towards the top of the page, and then click the first option on the drop down, `Azure virtual machine`.
 4. The page will automatically navigate to the proper page, and land you under the `Basics` tab. Under the Basics tab, ensure your subscription is `Azure for Students`, and create and name a new resouce group. I named my resource group `504-wk4b`.
 5. Under `Instance details`, give your VM a name. I named mine `AmnaMySQL`. Next, change the `Security type` it `Standard`.
-6. Next to `Size`, select `See all sizes ` and then under `VM sizes`, scroll to find `B-series`, click the drop down, and then click on `B1ms`, ensure the row gets highlighted and then click select. The selection should look like the screenshot below: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/d3c64bc5-88bf-4961-8ac5-228d7ad529fd)
+6. Next to `Size`, select `See all sizes ` and then under `VM sizes`, scroll to find `B-series`, click the drop down, and then click on `B1ms`, ensure the row gets highlighted and then click select. The selection should look like the screenshot below:
+   ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/d3c64bc5-88bf-4961-8ac5-228d7ad529fd)
 7. Under `Administrator account` for the `Authentication type` select `Password`. Now configure a `Username` and `Password`.
 8. For the port, under `Inbound port rules`, go to `select inbound ports`, click the drop-down, and select `HTTP (80)` and `HTTPS (443)`.
 9. Next, navigate to the `Networking` tab, located in same row as the Basics tab.
 10. Click the box next to `Delete public IP and NIC whne VM is deleted` so the box is check marked.
-11. Click `Review + Create`, review all the information presented to ensure it is correct, the price should look like the screenshot below: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/d3054fc1-1853-4fc6-a2e2-533d141fe001)
+11. Click `Review + Create`, review all the information presented to ensure it is correct, the price should look like the screenshot below:
+ ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/d3054fc1-1853-4fc6-a2e2-533d141fe001)
 
 
-12. If all looks well, click `Create`.
+14. If all looks well, click `Create`.
 ## Virtual Machine Setup on GCP
 1. Log into your Google Cloud account, ensure you are in `console.cloud.google.com`, and navigate to the hamburger icon on the left-hand side, and click on `Compute Engine` from the menu.
 2. Click `Create Instance`, and name your instance. I named mine `amna-504-sql`.
-3. Under `Machine Type` select this: ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/0ee3d302-f590-4700-88ad-48c6829e312a)
+3. Under `Machine Type` select this:
+ ![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/0ee3d302-f590-4700-88ad-48c6829e312a)
 
 4. Under `Firewall`, select  `Allow HTTP traffic` and `Allow HTTPS traffic`.
 5. Keep everything else under the default settings and click `Create`.
@@ -44,6 +47,20 @@ Manually setting up and running a database on a cloud VM. Hands-on experience se
 6. Go back to MySQL Workbench, and the connection should work after these steps are completed.
 
 ## Rational Behind My Database Schema
-![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/86e5d353-c26e-4c98-b3d3-0c534bcbab7b)
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/ec205851-c745-4b5b-a7be-ce14f84b00cb)
 
 I created 2 tables, a `providers` table and a `patients` table. In my `providers` table the primary key (PK) is `provider_id`. In the `patients` table, the PK is `patient_id`. I made the PKs the patient and provider ids, due to each individual having their own unique ID numbers, which would allow for easy identification. There is a foreign key (FK) relationship between the two tables; under the `patients` table, the foreign key was the `provider_id`. I chose this rational due to the norm in a healthcare setting where each patient is under the care of a provider, whether it be a physician, nurse practitioner, physician assistant, occupational therapist, physical therapist, respiratory therapist etc. 
+
+## Errors and Challenges
+I ran into a few hiccups along the process. The first major hiccup was earlier today, I had to delete my original repo I had been working on for the past few days, to make this new one due to a small mistake in my .env file, which could have lead to a security leak. Once I created this new repo, I was still coming accross errors. I went back into MySQL Workbench, because I had thought there may had been a connectivity issue in connecting the database, username, or password. When I went back to look at my database in Workbench, it would not show up and the program froze and unexpectedly shut off. A few moments later, I received a message on the screen there were reportedly issues with the program, so I right-clicked ontop of the application and clicked 'quit' and then restarted it again. In addition, when I would run the flask app, the values of the columns in the tables I had created were not being displayed. This lead me to believe there were connectivity issues between MySQL Workbench and Google Cloud Shell. When I was working on the assignment previously, I did not encounter these errors, therefore, I ruled out the possiblity of making a mistake in the set-up process or even missing a step in the connecting process. I created a brand new instance, created my tables from the code I had used before because it had worked previously and populated the tables. Everything was running smoothly, or so I thought. All the tables were able to be created and populated, as seen in the screenshots below showing the `providers` and `patients` tables. However, when I went back into Cloud Shell, and ran the flask app, only the column labels were able to be displayed, none of the values within the table, as seen in the `screenshots` folder above. 
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/c1518f59-5efb-4a4b-81ba-89ae23a0e60e)
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/6414c9af-6db4-42d7-83cc-06e97a8c20ab)
+I then decided to try to populate the tables manually in the Cloud Shell Terminal under MySQL hoping the flask app would then display the table values. I was able to create the tables in Cloud Shell, with the desired values, however they still were not able to be displayed on the flask app. 
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/f80606b6-687c-48e7-9ac3-1e94a555e388)
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/103f2ce7-49ba-406a-b609-e86583065beb)
+
+Other errors I also came across are shown below:
+![image](https://github.com/amnasyed1/flask_4_databases_mysql_vm2/assets/123895397/da76eae7-f2e0-4995-b88f-f2e3be66dac3)
+I tried troubleshooting, but ultimately I could not find fix the errors.
+Fortunately, in I was successfully able to push the .env and .gitignore files after creating the new instance. Some connectivity issues were able to be resolved, but unfortunatley I was not able to resolve all errors. 
+Lastly, I forgot to screenshot or document additonal errors I encountered, or how I was able to resolve them. For instance, I forgot to pip install a few packages, when I realized why the error was occuring, and installed the packages the codes ran smoothly. 
