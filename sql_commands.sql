@@ -30,4 +30,7 @@ INSERT INTO  providers (provider_id, provider_first_name, provider_last_name, pr
 INSERT INTO patients (patient_id, patient_first_name, patient_last_name, date_of_birth, provider_id) VALUES ('56383', 'Lily','Smith', '1987-12-13', '44242');
 INSERT INTO patients (patient_id, patient_first_name, patient_last_name, date_of_birth, provider_id) VALUES ('46283', 'Jimmy','Garrop', '1990-5-16', '13871');
 INSERT INTO patients (patient_id, patient_first_name, patient_last_name, date_of_birth, provider_id) VALUES ('98562', 'David','Buckingham', '1955-2-17','63723');
+
 INSERT INTO patients (patient_id, patient_first_name, patient_last_name, date_of_birth, provider_id) VALUES ('12573', 'Shania','Teller', '1944-10-27', '12345');
+
+
