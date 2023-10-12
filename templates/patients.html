@@ -2,8 +2,9 @@
 
 {% block content %}
 
-    <section>
-        <h2 class="text-xl mb-2"> Patients Table </h2>
+<section class="mb-6 table-container">
+    <div class="table">
+        <h2 class="text-xl mb-2">Patients Table</h2>
         <table class="table-auto">
             <thead>
                 <tr>
@@ -15,17 +16,17 @@
                 </tr>
             </thead>
             <tbody>
-                {% for data in data2.values %}
+                {% for doctors in data1 %}
                 <tr>
-                    <td class="border px-4 py-2">{{ data[0] }}</td>
-                    <td class="border px-4 py-2">{{ data[1] }}</td>
-                    <td class="border px-4 py-2">{{ data[2] }}</td>
-                    <td class="border px-4 py-2">{{ data[3] }}</td>
-                    <td class="border px-4 py-2">{{ data[4] }}</td>
+                    <td class="border px-4 py-2">{{ patients.patient_id }}</td>
+                    <td class="border px-4 py-2">{{ patients.first_name }}</td>
+                    <td class="border px-4 py-2">{{ patients.last_name }}</td>
+                    <td class="border px-4 py-2">{{ patients.date_of_birth}}</td>
+                    <td class="border px-4 py-2">{{ patients.provider_id }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
-        </table>        
-    </section>
+        </table>
+    </div>
 
 {% endblock %}

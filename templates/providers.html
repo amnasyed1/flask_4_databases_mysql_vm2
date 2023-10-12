@@ -1,9 +1,9 @@
 {% extends "base.html" %} 
 
 {% block content %}
-
-    <section>
-        <h2 class="text-xl mb-2"> Providers Table </h2>
+<section class="mb-6 table-container">
+    <div class="table">
+        <h2 class="text-xl mb-2">Providers Table</h2>
         <table class="table-auto">
             <thead>
                 <tr>
@@ -16,19 +16,18 @@
                 </tr>
             </thead>
             <tbody>
-                {% for data in data.values %}
+                {% for licenses in data2 %}
                 <tr>
-                    <td class="border px-4 py-2">{{ data[0] }}</td>
-                    <td class="border px-4 py-2">{{ data[1] }}</td>
-                    <td class="border px-4 py-2">{{ data[2] }}</td>
-                    <td class="border px-4 py-2">{{ data[3] }}</td>
-                    <td class="border px-4 py-2">{{ data[4] }}</td>
+                    <td class="border px-4 py-2">{{ providers.provider_id }}</td>
+                    <td class="border px-4 py-2">{{ providers.provider_first_name }}</td>
+                    <td class="border px-4 py-2">{{ providers.provider_last_name }}</td>
+                    <td class="border px-4 py-2">{{ providers.provider_occupation_title }}</td>
+                    <td class="border px-4 py-2">{{ providers.provider_department}}</td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </section>
+</div>
 
 {% endblock %}
-
-   
