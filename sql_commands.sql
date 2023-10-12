@@ -21,3 +21,8 @@ CREATE TABLE patients (
     provider_id INT,
     FOREIGN KEY (provider_id) REFERENCES providers(provider_id)
 );
+
+INSERT INTO  providers (provider_id, provider_first_name, provider_last_name, provider_occupation_title, provider_department) VALUES ('12345','Taylor','Swifty','Physician','Immunology';
+INSERT INTO  providers (provider_id, provider_first_name, provider_last_name, provider_occupation_title, provider_department) VALUES ('13871','Travis', 'Kelce','Physical Therapist','Orthopedics';
+INSERT INTO  providers (provider_id, provider_first_name, provider_last_name, provider_occupation_title, provider_department) VALUES ('63723', 'Zach', 'Bryan', 'Nurse Practitioner', 'Cardiology';
+INSERT INTO  providers (provider_id, provider_first_name, provider_last_name, provider_occupation_title, provider_department) VALUES ('44242', 'Kacey', 'Musgraves', 'Occupational Therapist', 'Neurology');
